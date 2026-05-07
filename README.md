@@ -11,7 +11,7 @@ A free MCP (Model Context Protocol) server powered by `api.iping.cc` for IP inte
 - API: `https://api.iping.cc/v1/query?ip=<IP>&language=zh|en`
 - Transport: `stdio`
 - Tool name: `iping_search`
-- GitHub repo: `https://github.com/Voccoo/iping_search.git`
+- GitHub repo: `https://github.com/Voccoo/mcp-server-iping.git`
 - Public free query site: `https://www.iping.cc`
 
 ### What this MCP provides
@@ -91,13 +91,13 @@ Recommended shared config:
 - `command`: `npx`
 - `args`: `[
   "-y",
-  "github:Voccoo/iping_search",
+  "github:Voccoo/mcp-server-iping",
   "iping_search"
 ]`
 
 Notes:
 
-- `github:Voccoo/iping_search` pulls from GitHub
+- `github:Voccoo/mcp-server-iping` pulls from GitHub
 - package `prepare` builds `dist` automatically
 - `iping_search` is the exposed executable entry (bin)
 
@@ -112,11 +112,30 @@ Common config path:
   "mcpServers": {
     "iping_search": {
       "command": "npx",
-      "args": ["-y", "github:Voccoo/iping_search", "iping_search"]
+      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping_search"]
     }
   }
 }
 ```
+
+#### OpenCode
+
+Config file path:
+
+- `~/.config/opencode/config.json`
+
+```json
+{
+  "mcpServers": {
+    "iping_search": {
+      "command": "npx",
+      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping_search"]
+    }
+  }
+}
+```
+
+> If your OpenCode installation uses a different config path, keep the same `mcpServers` block and place it in your active OpenCode config file.
 
 #### Cursor
 
@@ -127,7 +146,7 @@ Project config path: `.cursor/mcp.json`
   "mcpServers": {
     "iping_search": {
       "command": "npx",
-      "args": ["-y", "github:Voccoo/iping_search", "iping_search"]
+      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping_search"]
     }
   }
 }
@@ -144,7 +163,7 @@ Common config path:
   "mcpServers": {
     "iping_search": {
       "command": "npx",
-      "args": ["-y", "github:Voccoo/iping_search", "iping_search"]
+      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping_search"]
     }
   }
 }
@@ -159,7 +178,7 @@ Most clients use the same `mcpServers` schema:
   "mcpServers": {
     "iping_search": {
       "command": "npx",
-      "args": ["-y", "github:Voccoo/iping_search", "iping_search"]
+      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping_search"]
     }
   }
 }
@@ -188,7 +207,7 @@ Most clients use the same `mcpServers` schema:
 - API：`https://api.iping.cc/v1/query?ip=<IP>&language=zh|en`
 - 传输方式：`stdio`
 - 工具名：`iping_search`
-- GitHub 仓库：`https://github.com/Voccoo/iping_search.git`
+- GitHub 仓库：`https://github.com/Voccoo/mcp-server-iping.git`
 - 公开免费查询站点：`https://www.iping.cc`
 
 ### 这个 MCP 提供什么
@@ -268,13 +287,13 @@ npm run dev
 - `command`: `npx`
 - `args`: `[
   "-y",
-  "github:Voccoo/iping_search",
+  "github:Voccoo/mcp-server-iping",
   "iping_search"
 ]`
 
 说明：
 
-- `github:Voccoo/iping_search` 会从 GitHub 拉取项目
+- `github:Voccoo/mcp-server-iping` 会从 GitHub 拉取项目
 - 包内 `prepare` 会自动构建 `dist`
 - `iping_search` 是本项目暴露的可执行入口（bin）
 
@@ -289,13 +308,32 @@ npm run dev
   "mcpServers": {
     "iping_search": {
       "command": "npx",
-      "args": ["-y", "github:Voccoo/iping_search", "iping_search"]
+      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping_search"]
     }
   }
 }
 ```
 
-#### 2.2 Cursor
+#### 2.2 OpenCode
+
+配置文件路径：
+
+- `~/.config/opencode/config.json`
+
+```json
+{
+  "mcpServers": {
+    "iping_search": {
+      "command": "npx",
+      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping_search"]
+    }
+  }
+}
+```
+
+> 如果你的 OpenCode 实际配置文件路径不同，请保持 `mcpServers` 配置块不变，放到当前生效的 OpenCode 配置文件中。
+
+#### 2.3 Cursor
 
 项目内配置可用：`.cursor/mcp.json`
 
@@ -304,13 +342,13 @@ npm run dev
   "mcpServers": {
     "iping_search": {
       "command": "npx",
-      "args": ["-y", "github:Voccoo/iping_search", "iping_search"]
+      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping_search"]
     }
   }
 }
 ```
 
-#### 2.3 Windsurf
+#### 2.4 Windsurf
 
 配置文件常见位置：
 
@@ -321,13 +359,13 @@ npm run dev
   "mcpServers": {
     "iping_search": {
       "command": "npx",
-      "args": ["-y", "github:Voccoo/iping_search", "iping_search"]
+      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping_search"]
     }
   }
 }
 ```
 
-#### 2.4 Cline / 其他兼容 MCP 的客户端
+#### 2.5 Cline / 其他兼容 MCP 的客户端
 
 多数客户端也使用 `mcpServers` 结构：
 
@@ -336,7 +374,7 @@ npm run dev
   "mcpServers": {
     "iping_search": {
       "command": "npx",
-      "args": ["-y", "github:Voccoo/iping_search", "iping_search"]
+      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping_search"]
     }
   }
 }
