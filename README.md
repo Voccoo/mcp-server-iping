@@ -5,8 +5,9 @@
 - API: `https://api.iping.cc/v1/query?ip=<IP>&language=zh|en`
 - 传输方式：`stdio`
 - 工具名：`query_ip_geo`
+- Git 仓库：`https://github.com/Voccoo/mcp-server-iping.git`
 
-## 1. 安装与构建
+## 1. 安装与构建（开发者）
 
 ```bash
 npm install
@@ -33,22 +34,23 @@ npm run dev
 - 成功时：`ok: true` + `data`（上游 API 返回体）
 - 失败时：`ok: false` + 错误信息，且 `isError: true`
 
-## 3. 给各大 CLI 使用
+## 3. 给各大 CLI 使用（推荐：直接用 Git 地址）
 
-> 下列配置都采用 MCP 通用结构：`mcpServers -> { name: { command, args, env? } }`
+> 目标：使用者无需预先 clone 到本地固定路径，直接填 Git 地址即可运行。
 
-请把路径替换成你本机的绝对路径。
+统一推荐配置：
 
-假设项目目录是：
+- `command`: `npx`
+- `args`: `[
+  "-y",
+  "github:Voccoo/mcp-server-iping",
+  "iping-geo-mcp"
+]`
 
-- Windows: `F:\\LingJiang-ai\\iping_search`
-
-并且已经执行过 `npm install && npm run build`。
-
-推荐启动命令：
-
-- `command`: `node`
-- `args`: `["F:/LingJiang-ai/iping_search/dist/index.js"]`
+说明：
+- `github:Voccoo/mcp-server-iping` 会从 GitHub 拉取项目
+- 包内 `prepare` 会自动构建 `dist`
+- `iping-geo-mcp` 是本项目暴露的可执行入口（bin）
 
 ---
 
@@ -58,14 +60,12 @@ npm run dev
 
 - Windows: `%APPDATA%\\Claude\\claude_desktop_config.json`
 
-示例：
-
 ```json
 {
   "mcpServers": {
     "iping-geo": {
-      "command": "node",
-      "args": ["F:/LingJiang-ai/iping_search/dist/index.js"]
+      "command": "npx",
+      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping-geo-mcp"]
     }
   }
 }
@@ -81,8 +81,8 @@ npm run dev
 {
   "mcpServers": {
     "iping-geo": {
-      "command": "node",
-      "args": ["F:/LingJiang-ai/iping_search/dist/index.js"]
+      "command": "npx",
+      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping-geo-mcp"]
     }
   }
 }
@@ -100,8 +100,8 @@ npm run dev
 {
   "mcpServers": {
     "iping-geo": {
-      "command": "node",
-      "args": ["F:/LingJiang-ai/iping_search/dist/index.js"]
+      "command": "npx",
+      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping-geo-mcp"]
     }
   }
 }
@@ -111,14 +111,14 @@ npm run dev
 
 ### 3.4 Cline / 其他兼容 MCP 的客户端
 
-多数客户端也使用 `mcpServers` 结构，按同样方式填写：
+多数客户端也使用 `mcpServers` 结构：
 
 ```json
 {
   "mcpServers": {
     "iping-geo": {
-      "command": "node",
-      "args": ["F:/LingJiang-ai/iping_search/dist/index.js"]
+      "command": "npx",
+      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping-geo-mcp"]
     }
   }
 }
@@ -126,16 +126,14 @@ npm run dev
 
 ## 4. 使用示例（在支持 MCP 的客户端里）
 
-你可以让客户端调用：
-
 - 中文：`query_ip_geo({"ip":"8.8.8.8","language":"zh"})`
 - 英文：`query_ip_geo({"ip":"8.8.8.8","language":"en"})`
 
 ## 5. 运行建议
 
-1. 先 `npm run build`，优先用 `dist/index.js` 提供稳定服务。
-2. 如需调试，可把 `command` 改成 `npx`，`args` 改为 `["tsx", "src/index.ts"]`。
-3. 如果客户端无法启动 MCP，先检查：
-   - `node` 是否在 PATH 中
-   - `args` 是否为绝对路径
-   - JSON 是否有多余逗号
+1. 首次运行会从 GitHub 拉取并构建，可能稍慢。
+2. 需要本机安装 Node.js（建议 18+）。
+3. 如果客户端启动失败，先检查：
+   - `npx` 是否可用
+   - 网络是否可访问 GitHub
+   - JSON 配置是否有语法错误

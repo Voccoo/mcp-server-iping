@@ -5,8 +5,12 @@
   "description": "Free IP geolocation MCP server powered by api.iping.cc",
   "type": "module",
   "main": "dist/index.js",
+  "bin": {
+    "iping-geo-mcp": "dist/index.js"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build",
     "start": "node dist/index.js",
     "dev": "tsx src/index.ts",
     "check": "tsc --noEmit"
