@@ -1,12 +1,12 @@
 {
-  "name": "iping-geo-mcp",
+  "name": "iping_search",
   "version": "0.1.0",
   "private": true,
   "description": "Free IP geolocation MCP server powered by api.iping.cc",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "iping-geo-mcp": "dist/index.js"
+    "iping_search": "dist/index.js"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",

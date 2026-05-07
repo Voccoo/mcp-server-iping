@@ -1,4 +1,4 @@
-# iping-geo-mcp
+# iping_search
 
 [English](#english) | [中文](#中文)
 
@@ -10,8 +10,8 @@ A free MCP (Model Context Protocol) server powered by `api.iping.cc` for IP inte
 
 - API: `https://api.iping.cc/v1/query?ip=<IP>&language=zh|en`
 - Transport: `stdio`
-- Tool name: `query_ip_geo`
-- GitHub repo: `https://github.com/Voccoo/mcp-server-iping.git`
+- Tool name: `iping_search`
+- GitHub repo: `https://github.com/Voccoo/iping_search.git`
 - Public free query site: `https://www.iping.cc`
 
 ### What this MCP provides
@@ -27,7 +27,7 @@ A free MCP (Model Context Protocol) server powered by `api.iping.cc` for IP inte
 
 ### MCP Tool
 
-#### `query_ip_geo`
+#### `iping_search`
 
 **Input**
 
@@ -91,15 +91,15 @@ Recommended shared config:
 - `command`: `npx`
 - `args`: `[
   "-y",
-  "github:Voccoo/mcp-server-iping",
-  "iping-geo-mcp"
+  "github:Voccoo/iping_search",
+  "iping_search"
 ]`
 
 Notes:
 
-- `github:Voccoo/mcp-server-iping` pulls from GitHub
+- `github:Voccoo/iping_search` pulls from GitHub
 - package `prepare` builds `dist` automatically
-- `iping-geo-mcp` is the exposed executable entry (bin)
+- `iping_search` is the exposed executable entry (bin)
 
 #### Claude Desktop
 
@@ -110,9 +110,9 @@ Common config path:
 ```json
 {
   "mcpServers": {
-    "iping-geo": {
+    "iping_search": {
       "command": "npx",
-      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping-geo-mcp"]
+      "args": ["-y", "github:Voccoo/iping_search", "iping_search"]
     }
   }
 }
@@ -125,9 +125,9 @@ Project config path: `.cursor/mcp.json`
 ```json
 {
   "mcpServers": {
-    "iping-geo": {
+    "iping_search": {
       "command": "npx",
-      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping-geo-mcp"]
+      "args": ["-y", "github:Voccoo/iping_search", "iping_search"]
     }
   }
 }
@@ -142,9 +142,9 @@ Common config path:
 ```json
 {
   "mcpServers": {
-    "iping-geo": {
+    "iping_search": {
       "command": "npx",
-      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping-geo-mcp"]
+      "args": ["-y", "github:Voccoo/iping_search", "iping_search"]
     }
   }
 }
@@ -157,9 +157,9 @@ Most clients use the same `mcpServers` schema:
 ```json
 {
   "mcpServers": {
-    "iping-geo": {
+    "iping_search": {
       "command": "npx",
-      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping-geo-mcp"]
+      "args": ["-y", "github:Voccoo/iping_search", "iping_search"]
     }
   }
 }
@@ -167,8 +167,8 @@ Most clients use the same `mcpServers` schema:
 
 ### Usage example (inside MCP-compatible clients)
 
-- Chinese: `query_ip_geo({"ip":"8.8.8.8","language":"zh"})`
-- English: `query_ip_geo({"ip":"8.8.8.8","language":"en"})`
+- Chinese: `iping_search({"ip":"8.8.8.8","language":"zh"})`
+- English: `iping_search({"ip":"8.8.8.8","language":"en"})`
 
 ### Runtime notes
 
@@ -183,12 +183,12 @@ Most clients use the same `mcpServers` schema:
 
 ## 中文
 
-一个免费可用的 MCP（Model Context Protocol）服务：通过 `api.iping.cc` 提供 IP 智能查询。
+一个免费可用的 MCP（Model Context Protocol）服务：通过 `api.iping.cc` 提供 IP 智能查询，工具名为 `iping_search`。
 
 - API：`https://api.iping.cc/v1/query?ip=<IP>&language=zh|en`
 - 传输方式：`stdio`
-- 工具名：`query_ip_geo`
-- GitHub 仓库：`https://github.com/Voccoo/mcp-server-iping.git`
+- 工具名：`iping_search`
+- GitHub 仓库：`https://github.com/Voccoo/iping_search.git`
 - 公开免费查询站点：`https://www.iping.cc`
 
 ### 这个 MCP 提供什么
@@ -204,7 +204,7 @@ Most clients use the same `mcpServers` schema:
 
 ### MCP 工具说明
 
-#### `query_ip_geo`
+#### `iping_search`
 
 **输入参数**
 
@@ -268,15 +268,15 @@ npm run dev
 - `command`: `npx`
 - `args`: `[
   "-y",
-  "github:Voccoo/mcp-server-iping",
-  "iping-geo-mcp"
+  "github:Voccoo/iping_search",
+  "iping_search"
 ]`
 
 说明：
 
-- `github:Voccoo/mcp-server-iping` 会从 GitHub 拉取项目
+- `github:Voccoo/iping_search` 会从 GitHub 拉取项目
 - 包内 `prepare` 会自动构建 `dist`
-- `iping-geo-mcp` 是本项目暴露的可执行入口（bin）
+- `iping_search` 是本项目暴露的可执行入口（bin）
 
 #### 2.1 Claude Desktop
 
@@ -287,9 +287,9 @@ npm run dev
 ```json
 {
   "mcpServers": {
-    "iping-geo": {
+    "iping_search": {
       "command": "npx",
-      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping-geo-mcp"]
+      "args": ["-y", "github:Voccoo/iping_search", "iping_search"]
     }
   }
 }
@@ -302,9 +302,9 @@ npm run dev
 ```json
 {
   "mcpServers": {
-    "iping-geo": {
+    "iping_search": {
       "command": "npx",
-      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping-geo-mcp"]
+      "args": ["-y", "github:Voccoo/iping_search", "iping_search"]
     }
   }
 }
@@ -319,9 +319,9 @@ npm run dev
 ```json
 {
   "mcpServers": {
-    "iping-geo": {
+    "iping_search": {
       "command": "npx",
-      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping-geo-mcp"]
+      "args": ["-y", "github:Voccoo/iping_search", "iping_search"]
     }
   }
 }
@@ -334,9 +334,9 @@ npm run dev
 ```json
 {
   "mcpServers": {
-    "iping-geo": {
+    "iping_search": {
       "command": "npx",
-      "args": ["-y", "github:Voccoo/mcp-server-iping", "iping-geo-mcp"]
+      "args": ["-y", "github:Voccoo/iping_search", "iping_search"]
     }
   }
 }
@@ -344,8 +344,8 @@ npm run dev
 
 ### 3. 使用示例（在支持 MCP 的客户端里）
 
-- 中文：`query_ip_geo({"ip":"8.8.8.8","language":"zh"})`
-- 英文：`query_ip_geo({"ip":"8.8.8.8","language":"en"})`
+- 中文：`iping_search({"ip":"8.8.8.8","language":"zh"})`
+- 英文：`iping_search({"ip":"8.8.8.8","language":"en"})`
 
 ### 4. 运行建议
 

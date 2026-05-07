@@ -8,7 +8,7 @@ const API_BASE = "https://api.iping.cc/v1/query";
 const REQUEST_TIMEOUT_MS = 10_000;
 
 const server = new McpServer({
-  name: "iping-geo-mcp",
+  name: "iping_search",
   version: "0.1.0"
 });
 
@@ -24,7 +24,7 @@ const toolInputSchema = {
 };
 
 server.registerTool(
-  "query_ip_geo",
+  "iping_search",
   {
     title: "Query IP Geolocation",
     description:
@@ -142,6 +142,6 @@ async function main(): Promise<void> {
 
 main().catch((error: unknown) => {
   const message = error instanceof Error ? error.stack ?? error.message : String(error);
-  process.stderr.write(`[iping-geo-mcp] fatal: ${message}\n`);
+  process.stderr.write(`[iping_search] fatal: ${message}\n`);
   process.exit(1);
 });
