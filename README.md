@@ -124,6 +124,31 @@ Config file path:
 
 - `~/.config/opencode/config.json`
 
+Recommended (more stable in OpenCode): local build + local `dist/index.js` path.
+
+1. Clone repository to local machine
+2. Run `npm install`
+3. Run `npm run build`
+4. Set `command` to local node execution (example below)
+
+```json
+{
+  "mcpServers": {
+    "iping_search": {
+      "type": "local",
+      "command": [
+        "node",
+        "F:\\Lingjiang-ai-mcp\\mcp-server-iping\\dist\\index.js"
+      ],
+      "enabled": true,
+      "timeout": 30000
+    }
+  }
+}
+```
+
+Alternative (Git URL, no local clone required):
+
 ```json
 {
   "mcpServers": {
@@ -194,8 +219,8 @@ Most clients use the same `mcpServers` schema:
 1. First run may take longer because it pulls and builds from GitHub.
 2. Node.js 18+ is recommended.
 3. If startup fails, check:
-   - `npx` availability
-   - network access to GitHub
+   - For local mode: whether `node` can run and whether local `dist/index.js` path is correct
+   - For Git mode: `npx` availability and network access to GitHub
    - JSON syntax errors in config
 
 ---
@@ -320,6 +345,31 @@ npm run dev
 
 - `~/.config/opencode/config.json`
 
+推荐（在 OpenCode 中更稳定）：本地构建后使用本地 `dist/index.js` 路径启动。
+
+1. 先把仓库 clone 到本地
+2. 执行 `npm install`
+3. 执行 `npm run build`
+4. 把 `command` 改为本地 node 启动路径（示例如下）
+
+```json
+{
+  "mcpServers": {
+    "iping_search": {
+      "type": "local",
+      "command": [
+        "node",
+        "F:\\Lingjiang-ai-mcp\\mcp-server-iping\\dist\\index.js"
+      ],
+      "enabled": true,
+      "timeout": 30000
+    }
+  }
+}
+```
+
+备选方案（无需本地 clone，直接 Git 运行）：
+
 ```json
 {
   "mcpServers": {
@@ -390,6 +440,6 @@ npm run dev
 1. 首次运行会从 GitHub 拉取并构建，可能稍慢。
 2. 需要本机安装 Node.js（建议 18+）。
 3. 如果客户端启动失败，先检查：
-   - `npx` 是否可用
-   - 网络是否可访问 GitHub
+   - 本地模式：`node` 是否可用、本地 `dist/index.js` 路径是否正确
+   - Git 模式：`npx` 是否可用、网络是否可访问 GitHub
    - JSON 配置是否有语法错误
