@@ -129,7 +129,7 @@ Recommended (more stable in OpenCode): local build + local `dist/index.js` path.
 1. Clone repository to local machine
 2. Run `npm install`
 3. Run `npm run build`
-4. Set `command` to local node execution (example below)
+4. Set `command` to local node execution (example below, replace with your own cloned path)
 
 ```json
 {
@@ -138,7 +138,7 @@ Recommended (more stable in OpenCode): local build + local `dist/index.js` path.
       "type": "local",
       "command": [
         "node",
-        "F:\\Lingjiang-ai-mcp\\mcp-server-iping\\dist\\index.js"
+        "<your-clone-dir>\\mcp-server-iping\\dist\\index.js"
       ],
       "enabled": true,
       "timeout": 30000
@@ -350,7 +350,7 @@ npm run dev
 1. 先把仓库 clone 到本地
 2. 执行 `npm install`
 3. 执行 `npm run build`
-4. 把 `command` 改为本地 node 启动路径（示例如下）
+4. 把 `command` 改为本地 node 启动路径（示例如下，请替换成你自己的克隆路径）
 
 ```json
 {
@@ -359,7 +359,7 @@ npm run dev
       "type": "local",
       "command": [
         "node",
-        "F:\\Lingjiang-ai-mcp\\mcp-server-iping\\dist\\index.js"
+        "<你的克隆目录>\\mcp-server-iping\\dist\\index.js"
       ],
       "enabled": true,
       "timeout": 30000
